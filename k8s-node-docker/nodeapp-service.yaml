@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeapp-service
+spec:
+  selector:
+    app: nodeapp
+  ports:
+    - port: 80             # External port
+      targetPort: 8080      # Forward to the container's port (adjust to match your Node app)
+      protocol: TCP
+  type: LoadBalancer        # Use NodePort if running locally or LoadBalancer for cloud

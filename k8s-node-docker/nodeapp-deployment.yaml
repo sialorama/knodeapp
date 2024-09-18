@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodeapp
+  template:
+    metadata:
+      labels:
+        app: nodeapp
+    spec:
+      containers:
+        - name: nodeapp
+          image: sialorama/nodeapp:latest  # Replace with your Docker image
+          resources:
+            limits:
+              memory: "256Mi"   # Adjust memory for your Node app
+              cpu: "500m"       # Adjust CPU for your Node app
+          ports:
+            - containerPort: 8080  # Use the port your Node.js app listens on (e.g., 8080)

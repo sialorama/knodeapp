@@ -1,0 +1,5 @@
+Build Dockerfile image:
+    $ docker build -t sialorama/k8s-node-docker:latest .
+
+Push the image to DockerHub:
+    $ 
